@@ -100,8 +100,10 @@ extension ListOfPlacesViewController: ListOfPlacesDisplayLogic {
     func displayPrimaryStateBeforeSerching() {
         _places_search_bar.text = nil
         _places_search_bar.showsCancelButton = false
-        _places_search_bar.delegate!.searchBar!(_places_search_bar, textDidChange: "")
         _places_search_bar.endEditing(true)
+        
+        let request = ListOfPlaces.Search.Request(search_text: "")
+        _interactor?.filterData(request: request)
     }
     
     func displayUpdatedData(view_model: ListOfPlaces.DataUpdated.ViewModel) {

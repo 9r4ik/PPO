@@ -2,7 +2,12 @@ enum ListOfPlaces
 {
     struct PLaceModel {
         var name: String
+        var billing: String
         var url_string: String
+        
+        var displayed_name: String {
+            return billing + ", " + name
+        }
     }
     
     enum VariantsOfUIActions {

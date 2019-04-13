@@ -20,7 +20,7 @@ class PlaceCollViewCell: UICollectionViewCell {
     }
     
     func set(place: ListOfPlaces.PLaceModel) {
-        _place_name.text = place.name
+        _place_name.text = place.displayed_name
         _background_image.image = UIImage(named: place.url_string)
     }
     
