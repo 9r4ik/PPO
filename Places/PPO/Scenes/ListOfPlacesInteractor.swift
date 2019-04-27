@@ -2,6 +2,7 @@ protocol ListOfPlacesBusinessLogic {
     func reciveData(request: ListOfPlaces.RecieveData.Request)
     func filterData(request: ListOfPlaces.Search.Request)
     func detectUIAction(request: ListOfPlaces.UIActoins.Request )
+    func sortData(request: ListOfPlaces.Sort.Request)
 }
 
 protocol ListOfPlacesDataStore {
@@ -12,12 +13,15 @@ protocol ListOfPlacesDataStore {
 class ListOfPlacesInteractor
 {
     var _presenter: ListOfPlacesPresentationLogic?
-    var _worker = ListOfPlacesWorker()
+    var _worker: FilterCamerasArray = ListOfPlacesWorker()
     
-    var _state = ListOfPlaces.State.FirstResponder { didSet { _presenter?.presentUpdatedState(response: _state)} }
+    var _state = ListOfPlaces.State.FirstResponder { didSet {
+        if oldValue != _state { _presenter?.presentUpdatedState(response: _state) }
+        }
+    }
     
     var _data_manager: DataManagerProtocol?
-    var _all_places: [ListOfPlaces.PLaceModel] = [] {didSet {_displayed_places = _all_places}}
+    var _all_places: [ListOfPlaces.PLaceModel] = [] { didSet { _displayed_places = _worker.sortArray(original_array: _all_places, SortersType: _sorted_type) } }
     
     var _displayed_places: [ListOfPlaces.PLaceModel] = [] {
         didSet {
@@ -27,15 +31,25 @@ class ListOfPlacesInteractor
     }
     
     var _type_of_places = "Музей"
+    var _sorted_type: ListOfPlaces.SortersType = .Alphabet {
+        didSet {
+            _displayed_places = _worker.sortArray(original_array: _displayed_places, SortersType: _sorted_type)
+        }
+    }
 }
 
 extension ListOfPlacesInteractor: ListOfPlacesBusinessLogic {
+    func sortData(request: ListOfPlaces.Sort.Request) {
+        _sorted_type = request.sort_type
+    }
+    
     func detectUIAction(request: ListOfPlaces.UIActoins.Request) {
         _state.newState(UIAction: request.action)
     }
     
     func filterData(request: ListOfPlaces.Search.Request) {
-        _displayed_places = _worker.filterArray(original_array: _all_places, search_text: request.search_text)
+        let filtred_places = _worker.filterArray(original_array: _all_places, search_text: request.search_text)
+        _displayed_places = _worker.sortArray(original_array: filtred_places, SortersType: _sorted_type)
     }
     
     func reciveData(request: ListOfPlaces.RecieveData.Request) {

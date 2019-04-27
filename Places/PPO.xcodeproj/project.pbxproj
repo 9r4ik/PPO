@@ -21,6 +21,7 @@
 		E048F2F4224907260017ACBB /* Place CollView Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E048F2F3224907260017ACBB /* Place CollView Cell.swift */; };
 		E048F2F8224907530017ACBB /* Data manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E048F2F7224907530017ACBB /* Data manager.swift */; };
 		E0CC329C225CC39F00CD7AA8 /* ListOfPlacesModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CC329B225CC39F00CD7AA8 /* ListOfPlacesModels.swift */; };
+		E0FDAD81226DD1E2008DDB2A /* ListOfPlacesSorters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FDAD80226DD1E2008DDB2A /* ListOfPlacesSorters.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		E048F2F3224907260017ACBB /* Place CollView Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Place CollView Cell.swift"; sourceTree = "<group>"; };
 		E048F2F7224907530017ACBB /* Data manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data manager.swift"; sourceTree = "<group>"; };
 		E0CC329B225CC39F00CD7AA8 /* ListOfPlacesModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOfPlacesModels.swift; sourceTree = "<group>"; };
+		E0FDAD80226DD1E2008DDB2A /* ListOfPlacesSorters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfPlacesSorters.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				E020053C2255F678003AE683 /* ListOfPlacesViewController.swift */,
 				E020053D2255F678003AE683 /* ListOfPlacesInteractor.swift */,
 				E02005392255F678003AE683 /* ListOfPlacesWorker.swift */,
+				E0FDAD80226DD1E2008DDB2A /* ListOfPlacesSorters.swift */,
 				E02005382255F678003AE683 /* ListOfPlacesPresenter.swift */,
 			);
 			path = "List of places";
@@ -237,6 +240,7 @@
 				E048F2D522480F0D0017ACBB /* AppDelegate.swift in Sources */,
 				E020053F2255F678003AE683 /* ListOfPlacesWorker.swift in Sources */,
 				E048F2F2224907100017ACBB /* Data storage.swift in Sources */,
+				E0FDAD81226DD1E2008DDB2A /* ListOfPlacesSorters.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

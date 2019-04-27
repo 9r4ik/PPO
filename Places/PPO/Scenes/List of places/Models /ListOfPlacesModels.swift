@@ -2,11 +2,26 @@ enum ListOfPlaces
 {
     struct PLaceModel {
         var name: String
-        var billing: String
+        var address: String
         var url_string: String
+        var popular: Int
         
         var displayed_name: String {
-            return billing + ", " + name
+            return address + ", " + name
+        }
+        
+        
+    }
+    
+    enum SortersType {
+        case Alphabet
+        case Popular
+        
+        var sorter: (_ this: ListOfPlaces.PLaceModel, _ that: ListOfPlaces.PLaceModel) -> Bool {
+            switch self {
+            case .Alphabet: return SorterCamerasList.AlphabetSortArray
+            case .Popular:  return SorterCamerasList.PopularSortArray
+            }
         }
     }
     
@@ -53,6 +68,12 @@ enum ListOfPlaces
         }
     }
   
+    enum Sort {
+        struct Request {
+            let sort_type: SortersType
+        }
+    }
+    
     enum Search {
         struct Request {
             let search_text: String

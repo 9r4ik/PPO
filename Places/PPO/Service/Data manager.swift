@@ -29,17 +29,18 @@ protocol DataManagerProtocol {
 
 class DataManager: DataManagerProtocol {
     func receivePlaces(delegate: DataManagerHandler) {
-        delegate.didReceiveData(data: [ListOfPlaces.PLaceModel(name: "театр", billing: "Свобода", url_string: "name_1"),
-                                       ListOfPlaces.PLaceModel(name: "планетарий", billing: "Бауманская", url_string: "name_2"),
-                                       ListOfPlaces.PLaceModel(name: "кафе", billing: "Кольцевая", url_string: "name_3"),
-                                       ListOfPlaces.PLaceModel(name: "кафе", billing: "Арбат", url_string: "name_4"),
-                                       ListOfPlaces.PLaceModel(name: "театр", billing: "Углическая", url_string: "name_5"),
-                                       ListOfPlaces.PLaceModel(name: "университет", billing: "Буракова", url_string: "name_6"),
-                                       ListOfPlaces.PLaceModel(name: "планетарий", billing: "Золотая", url_string: "name_7"),
-                                       ListOfPlaces.PLaceModel(name: "акропль", billing: "Буденого", url_string: "name_8"),
-                                       ListOfPlaces.PLaceModel(name: "гум", billing: "Парковая", url_string: "name_9"),
-                                       ListOfPlaces.PLaceModel(name: "цдм", billing: "Арбат", url_string: "name_10"),
-                                       ListOfPlaces.PLaceModel(name: "памятник", billing: "Бауманская", url_string: "name_11"),
-                                       ListOfPlaces.PLaceModel(name: "скульптура", billing: "Свобода", url_string: "name_12"),])
+        delegate.didReceiveData(data: [ListOfPlaces.PLaceModel(name: "театр", address: "Свобода", url_string: "name_1", popular: 1),
+                                       ListOfPlaces.PLaceModel(name: "планетарий", address: "Бауманская", url_string: "name_2", popular: 2),
+                                       ListOfPlaces.PLaceModel(name: "кафе", address: "Кольцевая", url_string: "name_3", popular: 3),
+                                       ListOfPlaces.PLaceModel(name: "кафе", address: "Арбат", url_string: "name_4", popular: 4),
+                                       ListOfPlaces.PLaceModel(name: "театр", address: "Углическая", url_string: "name_5", popular: 5),
+                                       ListOfPlaces.PLaceModel(name: "университет", address: "Буракова", url_string: "name_6", popular: 6),
+                                       ListOfPlaces.PLaceModel(name: "планетарий", address: "Золотая", url_string: "name_7", popular: 7),
+                                       ListOfPlaces.PLaceModel(name: "акропль", address: "Буденого", url_string: "name_8", popular: 8),
+                                       ListOfPlaces.PLaceModel(name: "гум", address: "Парковая", url_string: "name_9", popular: 9),
+                                       ListOfPlaces.PLaceModel(name: "цдм", address: "Арбат", url_string: "name_10", popular: 10),
+                                       ListOfPlaces.PLaceModel(name: "памятник", address: "Бауманская", url_string: "name_11", popular: 11),
+                                       ListOfPlaces.PLaceModel(name: "скульптура", address: "Свобода", url_string: "name_12", popular: 12),])
+//        delegate.didReciveError(error: .internet)
     }
 }

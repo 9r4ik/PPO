@@ -9,11 +9,11 @@ protocol ListOfPlacesDisplayLogic: class {
     func displayUpdatedData(view_model: ListOfPlaces.DataUpdated.ViewModel)
 }
 
-class ListOfPlacesViewController: UIViewController
-{
+class ListOfPlacesViewController: UIViewController {
     @IBOutlet weak var _type_of_places_label: UILabel!
     @IBOutlet weak var _places_search_bar: UISearchBar!
     @IBOutlet weak var _places_coll_view: UICollectionView!
+    @IBOutlet weak var _sorted_type_controller: UISegmentedControl!
     
     var _interactor: ListOfPlacesBusinessLogic!
     var _data_store: ListOfPlacesDataStore!
@@ -43,7 +43,22 @@ class ListOfPlacesViewController: UIViewController
         setupPlacesLabel()
         setupSearchBar()
         setupCollView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         reciveData()
+    }
+    @IBAction func sortTypeChanged(_ sender: Any) {
+        let sorted_type: ListOfPlaces.SortersType!
+        
+        switch _sorted_type_controller.selectedSegmentIndex {
+        case 0: sorted_type = .Alphabet
+        case 1: sorted_type = .Popular
+        default : sorted_type = .Alphabet
+        }
+        
+        let request = ListOfPlaces.Sort.Request(sort_type: sorted_type)
+        _interactor?.sortData(request: request)
     }
 }
 
@@ -111,7 +126,9 @@ extension ListOfPlacesViewController: ListOfPlacesDisplayLogic {
     }
     
     func displayError(view_model: ListOfPlaces.RecieveData.ViewModel) {
-        print(view_model.error_string)
+        let alert = UIAlertController(title: "Ошибка", message: view_model.error_string, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

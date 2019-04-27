@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="be3-Ki-KCp">
-                                <rect key="frame" x="0.0" y="114" width="414" height="748"/>
+                                <rect key="frame" x="0.0" y="114" width="414" height="718"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FIA-L0-GY0">
                                     <size key="itemSize" width="50" height="50"/>
@@ -49,11 +49,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="EQR-EO-wxk">
+                                <rect key="frame" x="137.5" y="832" width="139" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="rmZ-xf-icP"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Alphabet"/>
+                                    <segment title="Popular"/>
+                                </segments>
+                                <connections>
+                                    <action selector="sortTypeChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="spB-D5-2Nc"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="EQR-EO-wxk" firstAttribute="top" secondItem="be3-Ki-KCp" secondAttribute="bottom" id="00E-Lv-nwO"/>
                             <constraint firstItem="D99-wg-B83" firstAttribute="top" secondItem="Crl-1d-Pnx" secondAttribute="bottom" id="6uk-zt-szQ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="be3-Ki-KCp" secondAttribute="bottom" id="7eJ-ro-cEk"/>
+                            <constraint firstItem="EQR-EO-wxk" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="6yx-jw-9Mc"/>
                             <constraint firstItem="Crl-1d-Pnx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9AH-QM-bo9"/>
                             <constraint firstItem="be3-Ki-KCp" firstAttribute="top" secondItem="D99-wg-B83" secondAttribute="bottom" id="G8A-gc-hFM"/>
                             <constraint firstItem="Crl-1d-Pnx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Ke1-YK-GMn"/>
@@ -61,6 +75,7 @@
                             <constraint firstItem="D99-wg-B83" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Z7D-vY-Xwb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Crl-1d-Pnx" secondAttribute="trailing" id="cf3-nh-9S6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="be3-Ki-KCp" secondAttribute="trailing" id="gQm-76-nXw"/>
+                            <constraint firstItem="EQR-EO-wxk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sCj-ZN-gdQ"/>
                             <constraint firstItem="be3-Ki-KCp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sRX-Hh-VhZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -68,12 +83,13 @@
                     <connections>
                         <outlet property="_places_coll_view" destination="be3-Ki-KCp" id="bpA-sN-P41"/>
                         <outlet property="_places_search_bar" destination="D99-wg-B83" id="38Y-eD-yds"/>
+                        <outlet property="_sorted_type_controller" destination="EQR-EO-wxk" id="8DB-8z-Ftd"/>
                         <outlet property="_type_of_places_label" destination="Crl-1d-Pnx" id="Fom-nr-dlG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+            <point key="canvasLocation" x="136.23188405797103" y="133.25892857142856"/>
         </scene>
     </scenes>
 </document>
